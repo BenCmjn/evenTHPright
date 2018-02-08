@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      log_in @user
+      # log_in @user
       # redirect_to secret_path
       flash.now[:success] = 'Welcome! Ton compte est créé'
     else
@@ -15,6 +15,9 @@ class UsersController < ApplicationController
   end
   def show
     @user = User.find(params[:id])
+  end
+  def index
+  	@users = User.all
   end
 
   private
